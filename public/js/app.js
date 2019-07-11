@@ -1,4 +1,3 @@
-console.log('client side javascript file has loaded');
 
 
 
