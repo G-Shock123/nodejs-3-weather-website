@@ -12,7 +12,7 @@ const forecast = (long, lat, callback)=>{
 
         const {error:mistake,daily,currently} = response.body
         if (error) {
-            callback('Unable to connect to the weather service. Perhaps no internet');
+            callback('A digicel u deh pon? Service nah connect boss. No internet');
 
 
         } else if (mistake) {
@@ -20,7 +20,12 @@ const forecast = (long, lat, callback)=>{
 
         }
         else {
-            callback(undefined, daily.data[0].summary + "It is currently " + currently.temperature + "  There is a " + currently.precipProbability+ " chance of rain");
+            if (currently.temperature <= 70){
+                callback(undefined, ' Ahh so the daily summary is: "' + daily.data[0].summary + '" It is currently ' + currently.temperature + "  There is a " + currently.precipProbability + " chance of rain. Time not to hot man ");
+            }else{
+                callback(undefined, ' Ahh so the daily summary is: "' + daily.data[0].summary + '" \nIt is currently ' + currently.temperature + "  There is a " + currently.precipProbability + " chance of rain. Jah no, son hot today");
+            }
+            
         }
     })
    
