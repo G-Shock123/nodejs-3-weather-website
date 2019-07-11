@@ -7,6 +7,7 @@ const path = require('path')
 const hbs = require('hbs')
 
 const app = express()
+const port = process.env.PORT || 3000 
 
 //Right here all i'm going is defining the paths for express. It's just easier to store it in a variable but it could have gone
 //striaght into app.set() and app.us if i reallywanted it to
@@ -124,7 +125,7 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('The server is up on port 3000');
     
 })
